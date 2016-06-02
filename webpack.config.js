@@ -29,7 +29,7 @@ module.exports = {
                 loader: 'url?limit=1500&name=[path][name].[hash:7].[ext]'
             },
             {
-                test: /\.s?css$/,
+                test: /\.s?[ac]ss$/,
                 loaders: [
                     'file?name=[path][name].[hash:7].css',
                     'extract',

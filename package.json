@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "validate_filename": "node validate_filename.js `git diff --staged --name-only --diff-filter=ACMRTU`",
-    "sasslint": "sass-lint --help",
+    "sasslint": "files=`git diff --staged --name-only --diff-filter=ACMRTU | grep -ie '\\.s[ac]ss$'`; if [ \"${files:=empty}\" != \"empty\" ]; then sass-lint --verbose --no-exit $files; fi",
     "eslint": "files=`git diff --staged --name-only --diff-filter=ACMRTU | grep -ie '\\.js$'`; if [ \"${files:=empty}\" != \"empty\" ]; then eslint -c .eslintrc.json $files; fi",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
