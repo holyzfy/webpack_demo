@@ -1,0 +1,37 @@
+$blue: #4A90E2;
+
+.btns {
+    margin-bottom: 20px;
+}
+.btn {
+    display: inline-block;
+    box-sizing: border-box;
+    transition: all 0.5s;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 25px;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+}
+.btn_primary {
+    background-color: $blue;
+}
+.btn_secondary {
+    background-color: #F7F7F7;
+    color: $blue;
+}
+.btn_simple {
+    border: 1px solid #D8D8D8;
+    color: #4A4A4A;
+}
+.test {
+    .test_item_1 {
+        background-image: url(../images/like.png);
+    }
+    .test_item_2 {
+        background-image: url(../images/github.jpg);
+    }
+}

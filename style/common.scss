@@ -1,0 +1,38 @@
+@import 'reset.scss';
+
+.pull_left {
+    float: left;
+}
+.pull_right {
+    float: right;
+}
+.clearfix:after{content:"."; display:block; clear:both; height:0; font-size:0; visibility:hidden;}
+.clearfix{zoom:1;}
+
+[class^=col_] {
+    float: left;
+    box-sizing: border-box;
+}
+@for $i from 1 through 12 {
+    .col_#{$i} {
+        width: percentage($i / 12);
+    }
+}
+.text_left {
+    text-align: left;
+}
+.text_right {
+    text-align: right;
+}
+.text_center {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #4A90E2;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
