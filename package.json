@@ -14,8 +14,20 @@
       "pre-commit": "npm run validate_filename && npm run sasslint && npm run eslint"
     }
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holyzfy/webpack_demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/holyzfy/webpack_demo/issues"
+  },
+  "homepage": "https://github.com/holyzfy/webpack_demo#readme",
+  "keywords": [
+    "webpack",
+    "demo",
+    "example"
+  ],
+  "author": "holyzfy <zhaofuyun202@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "autoprefixer": "^6.3.6",
@@ -29,5 +41,8 @@
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7"
+  },
+  "devDependencies": {
+    "ghooks": "^1.2.1"
   }
 }
