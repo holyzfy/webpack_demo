@@ -2,7 +2,7 @@
 
 ## 安装
 
-0. `npm install -g webpack sass-lint eslint`
+0. `npm install -g webpack sass-lint eslint validate_filename`
 0. `npm install`
 
 ## 启动

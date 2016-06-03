@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
-    "validate_filename": "node validate_filename.js `git diff --staged --name-only --diff-filter=ACMRTU`",
+    "validate_filename": "validate_filename -e '^[a-z0-9\\-_./]+$' -m '约定文件名由小写字母、数字、_组成' `git diff --staged --name-only --diff-filter=ACMRTU`",
     "sasslint": "files=`git diff --staged --name-only --diff-filter=ACMRTU | grep -ie '\\.s[ac]ss$'`; if [ \"${files:=empty}\" != \"empty\" ]; then sass-lint --verbose --no-exit $files; fi",
     "eslint": "files=`git diff --staged --name-only --diff-filter=ACMRTU | grep -ie '\\.js$'`; if [ \"${files:=empty}\" != \"empty\" ]; then eslint -c .eslintrc.json $files; fi",
     "test": "echo \"Error: no test specified\" && exit 1"
