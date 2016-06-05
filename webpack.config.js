@@ -4,7 +4,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     entry: {
         head_static: './inc/head_static.html',
-        form: './form.html'
+        form: ['./js/form.js', './form.html']
     },
     output: {
         path: './dist',
@@ -27,6 +27,11 @@ module.exports = {
             {
                 test: /\.(?:jpe?g|gif|png)$/,
                 loader: 'url?limit=1500&name=[path][name].[hash:7].[ext]'
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules|bower_components/,
+                loader: 'babel-loader',
             },
             {
                 test: /\.s?[ac]ss$/,

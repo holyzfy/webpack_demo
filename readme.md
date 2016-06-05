@@ -8,3 +8,11 @@
 ## 启动
 
 运行`webpack --watch --process`，构建结果请看`dist`目录
+
+## 预览
+
+0. 运行
+    ```
+    webpack --output-public-path http://dev.f2e.tcredit.com:8021/webpack_demo/dist/
+    ```
+0. 在浏览器里访问 http://dev.f2e.tcredit.com:8021/webpack_demo/dist/form.html

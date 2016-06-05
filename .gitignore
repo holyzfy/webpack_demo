@@ -39,3 +39,4 @@ dist
 .idea
 *.iml
 style/**/*.css
+bower_components

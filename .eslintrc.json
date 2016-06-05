@@ -1,11 +1,15 @@
 {
     "env": {
         "browser": true,
-        "amd": true
+        "node": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
     },
     "globals": {
-        "app": true,
-        "require": true
+        "app": true
     },
     "rules": {
         "semi": "error",
