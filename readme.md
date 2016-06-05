@@ -1,5 +1,7 @@
 # webpack_demo
 
+![Progress](http://progressed.io/bar/91?title=TODO)   
+
 ## 安装
 
 0. `npm install -g webpack sass-lint eslint validate_filename`
