@@ -1,6 +1,6 @@
 # webpack_demo
 
-![Progress](http://progressed.io/bar/91?title=TODO)   
+![Progress](http://progressed.io/bar/10?title=TODO)   
 
 ## 安装
 
