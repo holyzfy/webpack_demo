@@ -1,0 +1,30 @@
+{
+  "name": "webpack_demo",
+  "description": "",
+  "main": "",
+  "authors": [
+    "holyzfy <zhaofuyun202@gmail.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "webpack",
+    "demo",
+    "example"
+  ],
+  "homepage": "https://github.com/holyzfy/webpack_demo",
+  "moduleType": [
+    "es6"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^1.12.0",
+    "jquery-validation": "jzaefferer/jquery-validation#^1.15.0"
+  }
+}

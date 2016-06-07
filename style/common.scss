@@ -6,8 +6,17 @@
 .pull_right {
     float: right;
 }
-.clearfix:after{content:"."; display:block; clear:both; height:0; font-size:0; visibility:hidden;}
-.clearfix{zoom:1;}
+.clearfix:after {
+    content: '.'; 
+    display: block; 
+    clear: both; 
+    height: 0; 
+    font-size: 0; 
+    visibility: hidden;
+}
+.clearfix {
+    zoom: 1;
+}
 
 [class^=col_] {
     float: left;
@@ -35,4 +44,8 @@ h1 {
     color: #fff;
     font-size: 20px;
     font-weight: bold;
+}
+.wrapper {
+    width: 1000px;
+    margin: 0 auto;
 }

@@ -1,5 +1,10 @@
 $blue: #4A90E2;
 
+.form  {
+    li {
+        margin-bottom: 10px;
+    }
+}
 .btns {
     margin-bottom: 20px;
 }
@@ -7,8 +12,7 @@ $blue: #4A90E2;
     display: inline-block;
     box-sizing: border-box;
     transition: all 0.5s;
-    height: 40px;
-    line-height: 40px;
+    height: 30px;
     padding: 0 25px;
     border: 0;
     border-radius: 5px;

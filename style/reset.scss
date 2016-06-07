@@ -1,21 +1,95 @@
-body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0; padding:0;}
-body,button,input,select,textarea{font-size:14px; font-family: 'Microsoft Yahei', 'Heiti SC', arial, sans-serif;}
-body{min-width: 1200px; color:#4A4A4A;}
-h1,h2,h3,h4,h5,h6{font-size:100%; font-family: 'Heiti SC', '黑体'; font-weight: normal;}
-address,cite,em,b,i{font-style:normal;}
-small{font-size:12px;}
-ul,ol{list-style:none;}
-a{color:#4A4A4A; text-decoration:none; outline:0;}
-a:hover {text-decoration: underline;}
-fieldset,img{border:0;}
-button,input,select,textarea{box-sizing: border-box; font-size:100%;}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+    margin: 0;
+    padding: 0;
+}
+body,
+button,
+input,
+select,
+textarea {
+    font-size: 14px;
+    font-family: 'Microsoft Yahei', 'Heiti SC', arial, sans-serif;
+}
+body {
+    min-width: 1200px;
+    color: #4A4A4A;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-family: 'Heiti SC', '黑体';
+    font-weight: normal;
+}
+address,
+cite,
+em,
+b,
+i {
+    font-style: normal;
+}
+small {
+    font-size: 12px;
+}
+ul,
+ol {
+    list-style: none;
+}
+a {
+    color: #4A4A4A;
+    text-decoration: none;
+    outline: 0;
+}
+a:hover {
+    text-decoration: underline;
+}
+fieldset,
+img {
+    border: 0;
+}
+button,
+input,
+select,
+textarea {
+    box-sizing: border-box;
+    font-size: 100%;
+}
 select {
     background: none;
 }
 button {
-    cursor: pointer; outline: 0;
+    cursor: pointer;
+    outline: 0;
 }
-a,button {
+a,
+button {
     &.disabled,
     &[disabled] {
         background-color: #ededed !important;
@@ -23,17 +97,27 @@ a,button {
         color: #ccc !important;
     }
 }
-a.disabled:hover{
+a.disabled:hover {
     text-decoration: none;
 }
-input,textarea {
-    background-color:#fff; outline:0;
+input,
+textarea {
+    background-color: #fff;
+    outline: 0;
     &.disabled,
     &[disabled] {
         background-color: #ededed !important;
         color: #ccc !important;
     }
 }
-input[type="file"] {cursor: pointer;}
-table{border-collapse:collapse; border-spacing:0;}
-caption,th{font-weight:normal;}
+input[type='file'] {
+    cursor: pointer;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+caption,
+th {
+    font-weight: normal;
+}
