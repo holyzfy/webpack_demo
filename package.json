@@ -54,6 +54,7 @@
     "file-loader": "^0.8.5",
     "ghooks": "^1.2.1",
     "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.21.0",
     "jsdom": "^9.2.1",
     "node-sass": "^3.7.0",
     "postcss-loader": "^0.9.1",
