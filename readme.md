@@ -11,4 +11,4 @@
 
 0. html文件使用了velocity语法进行演示，请使用[velocityServer](https://github.com/holyzfy/velocityServer)或者其他web服务器查看效果
 0. 运行`webpack`，构建结果请看`dist`目录*（如果要开启watch功能，请运行`npm run dev`）*
-0. 在浏览器里访问 http://localhost:8021/webpack_demo/dist
+0. 在浏览器里访问[http://localhost:8021/webpack_demo/dist](http://localhost:8021/webpack_demo/dist)
