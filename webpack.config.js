@@ -2,7 +2,9 @@
 
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 var plugins = require('webpack-load-plugins')();
+
 module.exports = {
     entry: {
         common: ['./js/urlmap.js', 'jquery'],
@@ -55,15 +57,15 @@ module.exports = {
         modulesDirectories: ['web_modules', 'node_modules', 'bower_components']
     },
     plugins: [
+        new CleanWebpackPlugin(['dist'], {
+            verbose: true
+        }),
         new webpack.ResolverPlugin(
             new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('.bower.json', ['main'])
         ),
         new webpack.optimize.CommonsChunkPlugin({
             names: ['common', 'manifest'],
             minChunks: Infinity
-        }),
-        new plugins.clean(['dist'], {
-            verbose: true
         }),
         new plugins.inlineManifest,
         new plugins.html({
