@@ -5,7 +5,7 @@
 ## 安装
 
 0. `npm install -g webpack sass-lint eslint validate_filename`
-0. `npm install`
+0. `npm install; bower install`
 
 ## 预览
 
