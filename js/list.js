@@ -1,3 +1,3 @@
-import $ from '../bower_components/jquery/dist/jquery';
+import $ from 'jquery';
 
 // console.info($.fn.jquery);

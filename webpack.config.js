@@ -1,9 +1,12 @@
+var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 
 module.exports = {
     entry: {
+        common: ['./js/urlmap.js', 'jquery'],
         form: './js/form.js',
         list: './js/list.js'
     },
@@ -48,7 +51,17 @@ module.exports = {
     postcss: function () {
         return [autoprefixer];
     },
+    resolve: {
+        modulesDirectories: ['web_modules', 'node_modules', 'bower_components']
+    },
     plugins: [
+        new webpack.ResolverPlugin(
+            new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('.bower.json', ['main'])
+        ),
+        new CommonsChunkPlugin({
+            name: 'common',
+            minChunks: Infinity
+        }),
         new CleanWebpackPlugin(['dist'], {
             verbose: true
         }),
@@ -60,13 +73,13 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'form.html',
             template: 'html!form.html',
-            chunks: ['form'],
+            chunks: ['common', 'form'],
             inject: 'body'
         }),
         new HtmlWebpackPlugin({
             filename: 'list.html',
             template: 'html!list.html',
-            chunks: ['list'],
+            chunks: ['common', 'list'],
             inject: 'body'
         })
     ]
