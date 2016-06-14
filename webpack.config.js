@@ -1,9 +1,8 @@
+/* eslint-disable new-cap */
+
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
-var CleanWebpackPlugin = require('clean-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
-
+var plugins = require('webpack-load-plugins')();
 module.exports = {
     entry: {
         common: ['./js/urlmap.js', 'jquery'],
@@ -35,7 +34,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules|bower_components/,
-                loader: 'babel-loader',
+                loader: 'babel',
             },
             {
                 test: /\.s?[ac]ss$/,
@@ -63,11 +62,11 @@ module.exports = {
             names: ['common', 'manifest'],
             minChunks: Infinity
         }),
-        new CleanWebpackPlugin(['dist'], {
+        new plugins.clean(['dist'], {
             verbose: true
         }),
-        new InlineManifestWebpackPlugin,
-        new HtmlWebpackPlugin({
+        new plugins.inlineManifest,
+        new plugins.html({
             filename: 'inc/manifest.html',
             template: 'inc/manifest.html',
             inject: false,
@@ -75,18 +74,18 @@ module.exports = {
                 minifyJS: true
             }
         }),
-        new HtmlWebpackPlugin({
+        new plugins.html({
             filename: 'inc/head_static.html',
             template: 'html!inc/head_static.html',
             inject: false
         }),
-        new HtmlWebpackPlugin({
+        new plugins.html({
             filename: 'form.html',
             template: 'html!form.html',
             chunks: ['common', 'form'],
             chunksSortMode: 'dependency'
         }),
-        new HtmlWebpackPlugin({
+        new plugins.html({
             filename: 'list.html',
             template: 'html!list.html',
             chunks: ['common', 'list'],
