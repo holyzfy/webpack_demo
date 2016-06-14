@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
+var InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -20,7 +20,8 @@ module.exports = {
         loaders: [
             {
                 test: /\.html$/,
-                loaders: [
+                exclude: /manifest.html$/,
+                loaders: [  
                     'extract',
                     'html?' + JSON.stringify({
                         attrs: ['img:src', 'link:href']
@@ -58,12 +59,21 @@ module.exports = {
         new webpack.ResolverPlugin(
             new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('.bower.json', ['main'])
         ),
-        new CommonsChunkPlugin({
-            name: 'common',
+        new webpack.optimize.CommonsChunkPlugin({
+            names: ['common', 'manifest'],
             minChunks: Infinity
         }),
         new CleanWebpackPlugin(['dist'], {
             verbose: true
+        }),
+        new InlineManifestWebpackPlugin,
+        new HtmlWebpackPlugin({
+            filename: 'inc/manifest.html',
+            template: 'inc/manifest.html',
+            inject: false,
+            minify: {
+                minifyJS: true
+            }
         }),
         new HtmlWebpackPlugin({
             filename: 'inc/head_static.html',
@@ -74,13 +84,13 @@ module.exports = {
             filename: 'form.html',
             template: 'html!form.html',
             chunks: ['common', 'form'],
-            inject: 'body'
+            chunksSortMode: 'dependency'
         }),
         new HtmlWebpackPlugin({
             filename: 'list.html',
             template: 'html!list.html',
             chunks: ['common', 'list'],
-            inject: 'body'
+            chunksSortMode: 'dependency'
         })
     ]
 };
