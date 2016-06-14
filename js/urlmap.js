@@ -6,10 +6,10 @@ var productionMap = {
     list: '/api/list'
 };
 
-export function getEnv(win) {
+export function getEnv() {
     var devList = ['localhost'];
-    var isLocal = win && devList.indexOf(win.location.hostname) > -1;
+    var isLocal = ('object' === typeof location) && devList.indexOf(location.hostname) > -1;
     return isLocal ? 'development' : 'production';
 }
 
-export default getEnv(global.window) === 'development' ? devMap : productionMap;
+export default getEnv() === 'development' ? devMap : productionMap;

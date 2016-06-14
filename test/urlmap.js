@@ -8,7 +8,7 @@ test('env: development', t => {
         html: '<html></html>',
         url: 'http://localhost',
         done: function (err, window) {
-            t.is(getEnv(window), 'development');
+            t.is(getEnv.call(window), 'development');
         }
     };
     jsdom.env(config);
@@ -19,7 +19,7 @@ test('env: production', t => {
         html: '<html></html>',
         url: 'http://test.example.com',
         done: function (err, window) {
-            t.is(getEnv(window), 'production');
+            t.is(getEnv.call(window), 'production');
         }
     };
     jsdom.env(config);
