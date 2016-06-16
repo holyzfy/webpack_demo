@@ -1,6 +1,6 @@
 # webpack_demo
 
-webpack是一个很强大的模块加载器和打包工具，然而在网上没找到能直接在项目里实用的解决方案，所以我决定写一个。
+webpack是一个很强大的模块加载器和打包工具，然而在网上没找到适用于实际项目的解决方案，所以我决定写一个。
 
 ![项目进度](https://img.shields.io/badge/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6-20%25-brightgreen.svg)   
 
