@@ -27,6 +27,7 @@ rules:
   no-misspelled-properties: 1
   no-vendor-prefixes: 1
   no-important: 1
+  no-universal-selectors: 1
   one-declaration-per-line:
     - 2
   placeholder-name-format:
