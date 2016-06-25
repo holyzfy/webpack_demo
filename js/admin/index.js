@@ -1,0 +1,1 @@
+export var page = 'admin_index';

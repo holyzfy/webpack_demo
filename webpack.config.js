@@ -3,23 +3,23 @@
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
-var plugins = require('webpack-load-plugins')({
-    lazy: false
-});
+var plugins = require('webpack-load-plugins')();
+var glob = require('glob');
+var path = require('path');
+
 var hash = process.env.NODE_ENV === 'dev' ? '' : '.[hash:7]';
+var chunkHash = process.env.NODE_ENV === 'dev' ? '' : '.[chunkHash:7]';
 var html = 'html?minimize=false&attrs=img:src link:href';
 
 var config = {
     entry: {
-        common: ['./js/urlmap.js', 'jquery'],
-        form: './js/form.js',
-        list: './js/list.js'
+        'js/common': ['./js/urlmap.js', 'jquery']
     },
     output: {
         path: './dist',
         publicPath: 'http://static.example.com/webpack_demo/',
-        filename: 'js/[name].[chunkhash:7].js',
-        chunkFilename: 'js/[name].[chunkhash:7].js'
+        filename: '[name]' + chunkHash + '.js',
+        chunkFilename: '[name].[chunkhash:7].js'
     },
     module: {
         loaders: [
@@ -61,7 +61,7 @@ var config = {
             new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin('.bower.json', ['main'])
         ),
         new webpack.optimize.CommonsChunkPlugin({
-            names: ['common', 'manifest'],
+            names: ['js/common', 'manifest'],
             minChunks: Infinity
         }),
         new plugins.inlineManifest,
@@ -74,24 +74,13 @@ var config = {
             filename: 'inc/head_static.html',
             template: html + '!inc/head_static.html',
             inject: false
-        }),
-        new plugins.html({
-            filename: 'form.html',
-            template: html + '!form.html',
-            chunks: ['common', 'form'],
-            chunksSortMode: 'dependency'
-        }),
-        new plugins.html({
-            filename: 'list.html',
-            template: html + '!list.html',
-            chunks: ['common', 'list'],
-            chunksSortMode: 'dependency'
         })
     ]
 };
 
 if (process.env.NODE_ENV === 'dev') {
     // dev
+    config.devtool = 'inline-source-map';
 } else {
     config.plugins.push(
         new webpack.optimize.UglifyJsPlugin({
@@ -104,4 +93,36 @@ if (process.env.NODE_ENV === 'dev') {
     );
 }
 
+function setEntry(list) {
+    list.forEach(function (name) {
+        config.entry[name.slice(0, -3)] = path.resolve(__dirname, name);
+    });
+}
+
+function setHtml(entry) {
+    glob.sync('*.html').forEach(function (name) {
+        var option = {
+            filename: name,
+            template: html + '!' + name
+        };
+        var js = path.join('js', name.slice(0, -5));
+        if(entry.indexOf(js + '.js') >= 0) {
+            option.chunks = ['js/common', js];
+            option.chunksSortMode = 'dependency';
+        } else {
+            option.inject = false;
+        }
+        config.plugins.push(new plugins.html(option));
+    });
+}
+
+function start(entry) {
+    setEntry(entry);
+    setHtml(entry);
+}
+
+start([
+    'js/form.js',
+    'js/list.js'
+]);
 module.exports = config;

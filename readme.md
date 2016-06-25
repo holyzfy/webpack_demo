@@ -2,12 +2,18 @@
 
 webpack是一个很强大的模块加载器和打包工具，然而在网上没找到适用于实际项目的解决方案，所以我决定写一个示例项目。
 
-![项目进度](https://img.shields.io/badge/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6-20%25-brightgreen.svg)   
+![项目进度](https://img.shields.io/badge/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6-50%25-brightgreen.svg)   
 
 ## 安装
 
 0. `npm install -g webpack sass-lint eslint validate_filename`
 0. `npm install; bower install`
+
+## 使用
+
+- 本地开发 `npm run dev`
+- 构建生产环境 `npm run production` 或者 `webpack`
+- 单元测试 `npm test`
 
 ## 预览
 
