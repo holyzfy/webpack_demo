@@ -2,7 +2,7 @@
 
 webpack是一个很强大的模块加载器和打包工具，然而在实际项目里很难做到拿来即用，所以我决定写一个示例项目。
 
-![项目进度](https://img.shields.io/badge/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6-50%25-brightgreen.svg)   
+![项目进度](https://img.shields.io/badge/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6-60%25-brightgreen.svg)   
 
 ## 安装
 

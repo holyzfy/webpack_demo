@@ -1,5 +1,5 @@
 module.exports = {
-    "title": "hello title",
+    "title": "hello",
     "now": function() {
         return new Date;
     }

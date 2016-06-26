@@ -6,6 +6,8 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 var plugins = require('webpack-load-plugins')();
 var glob = require('glob');
 var path = require('path');
+var watch = require('chokidar');
+var shell = require('shelljs');
 
 var hash = process.env.NODE_ENV === 'dev' ? '' : '.[hash:7]';
 var chunkHash = process.env.NODE_ENV === 'dev' ? '' : '.[chunkHash:7]';
@@ -83,8 +85,12 @@ var config = {
 };
 
 if (process.env.NODE_ENV === 'dev') {
-    // dev
     config.devtool = 'inline-source-map';
+    watch.watch(['mock', '*.js'], {
+        ignored: 'webpack.config.js'
+    }).on('all', function (event, path) {
+        shell.exec('rsync -r --delete-after mock *.js dist');
+    });
 } else {
     config.plugins.push(
         new webpack.optimize.UglifyJsPlugin({
