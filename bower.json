@@ -24,6 +24,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery-validation": "jzaefferer/jquery-validation#^1.15.0"
+    "jquery-validation": "jzaefferer/jquery-validation#^1.15.0",
+    "artTemplate": "aui/artTemplate#b31492f"
   }
 }

@@ -7,7 +7,7 @@ var productionMap = {
 };
 
 export function getEnv() {
-    var devList = ['localhost'];
+    var devList = ['localhost', 'dev.f2e.tcredit.com'];
     var isLocal = ('object' === typeof location) && devList.indexOf(location.hostname) > -1;
     return isLocal ? 'development' : 'production';
 }

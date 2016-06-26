@@ -1,0 +1,5 @@
+<ul>
+{{each list}}
+    <li><a href="#{{$value.id}}">{{$value.title}} {{now | dateFormat: 'yyyy-MM-dd'}}</a></li>
+{{/each}}
+</ul>

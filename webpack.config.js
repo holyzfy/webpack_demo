@@ -13,7 +13,7 @@ var html = 'html?minimize=false&attrs=img:src link:href';
 
 var config = {
     entry: {
-        'js/common': ['./js/urlmap.js', 'jquery']
+        'js/common': ['jquery'].concat(glob.sync('./js/util/**/*.js'))
     },
     output: {
         path: './dist',
@@ -23,6 +23,10 @@ var config = {
     },
     module: {
         loaders: [
+            {
+                test: /templates\/.+.html$/,
+                loader: 'raw'
+            },
             {
                 test: /\.(?:jpe?g|gif|png|svg)$/,
                 loaders: [
