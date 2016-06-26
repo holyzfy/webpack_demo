@@ -70,17 +70,7 @@ var config = {
             names: ['js/common', 'manifest'],
             minChunks: Infinity
         }),
-        new plugins.inlineManifest,
-        new plugins.html({
-            filename: 'inc/manifest.html',
-            template: 'inc/manifest.html',
-            inject: false
-        }),
-        new plugins.html({
-            filename: 'inc/head_static.html',
-            template: html + '!inc/head_static.html',
-            inject: false
-        })
+        new plugins.inlineManifest
     ]
 };
 
@@ -110,10 +100,10 @@ function setEntry(list) {
 }
 
 function setHtml(entry) {
-    glob.sync('*.html').forEach(function (name) {
+    glob.sync('{inc/**/*.html,*.html}').forEach(function (name) {
         var option = {
             filename: name,
-            template: html + '!' + name
+            template: (name === 'inc/manifest.html') ? name : (html + '!' + name)
         };
         var js = path.join('js', name.slice(0, -5));
         if(entry.indexOf(js + '.js') >= 0) {
