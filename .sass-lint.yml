@@ -42,7 +42,7 @@ rules:
     - 1
   space-after-comma:
     - 1
-  pace-around-operator:
+  space-around-operator:
     - 1
   space-before-bang:
     - 1
