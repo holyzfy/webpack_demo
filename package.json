@@ -34,6 +34,9 @@
   "babel": {
     "presets": [
       "es2015"
+    ],
+    "plugins": [
+      "add-module-exports"
     ]
   },
   "ava": {
@@ -48,6 +51,7 @@
     "babel-cli": "^6.9.0",
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
     "chokidar": "^1.6.0",

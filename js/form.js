@@ -1,6 +1,15 @@
+/* eslint-disable no-console */
+
 import urlmap from './util/urlmap';
 import { page } from './admin/index';
 
-console.info('page=', page); // eslint-disable-line no-console
+function start() {
+    console.info('page=', page);
+    console.info('urlmap=', urlmap);
 
-console.info('urlmap=', urlmap); // eslint-disable-line no-console
+    require(['./module_a', './module_b'], function async(moduleA, moduleB) {
+        console.info(moduleA, moduleB);
+    });
+}
+
+(typeof window === 'object') && start();

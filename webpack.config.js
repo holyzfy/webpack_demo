@@ -70,6 +70,13 @@ var config = {
             names: ['js/common', 'manifest'],
             minChunks: Infinity
         }),
+        
+        /*new webpack.optimize.CommonsChunkPlugin({
+            filename: 'js/[name].[chunkhash:7].js',
+            minChunks: 2,
+            children: true,
+            async: true
+        }),*/
         new plugins.inlineManifest
     ]
 };
@@ -79,7 +86,7 @@ if (process.env.NODE_ENV === 'dev') {
     watch.watch(['mock', '*.js'], {
         ignored: 'webpack.config.js'
     }).on('all', function (event, path) {
-        shell.exec('rsync -r --delete-after mock *.js dist');
+        shell.exec('rsync -r --delete-after --exclude webpack.config.js mock *.js dist');
     });
 } else {
     config.plugins.push(
