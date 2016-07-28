@@ -6,8 +6,9 @@ webpack是一个很强大的模块加载器和打包工具，然而在实际项�
 
 ## 安装
 
-0. `npm install -g webpack sass-lint eslint validate_filename`
-0. `npm install; bower install`
+```
+npm install
+```
 
 ## 使用
 

@@ -45,6 +45,8 @@
       "babel-register"
     ]
   },
+  "preinstall": "npm ls -g webpack || npm i -g webpack; npm ls -g sass-lint || npm i -g sass-lint",
+  "postinstall": "bower install",
   "dependencies": {
     "autoprefixer": "^6.3.6",
     "ava": "^0.15.1",
