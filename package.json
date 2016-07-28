@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "NODE_ENV=dev webpack --watch --process --output-public-path http://localhost:8021/webpack_demo/dist/",
     "production": "webpack",
-    "validate_filename": "validate_filename -e '^[a-z0-9\\-_./]+$' -m '约定文件名由小写字母、数字、_组成' `git diff --staged --name-only --diff-filter=ACMRTU`",
-    "sasslint": "files=`git diff --staged --name-only --diff-filter=ACMRTU | grep -ie '\\.s[ac]ss$'`; if [ \"${files:=empty}\" != \"empty\" ]; then sass-lint --verbose --no-exit $files; fi",
-    "eslint": "files=`git diff --staged --name-only --diff-filter=ACMRTU | grep -ie '\\.js$'`; if [ \"${files:=empty}\" != \"empty\" ]; then eslint -c .eslintrc.json $files; fi",
+    "validate_filename": "node node_modules/validate_filename/index.js -e '^[a-z0-9\\-_./]+$' -m '约定文件名由小写字母、数字、_组成' `git diff --staged --name-only --diff-filter=ACMRTU`",
+    "sasslint": "files=`git diff --staged --name-only --diff-filter=ACMRTU | egrep -i '\\.s[ac]ss$'`; if [ \"${files:=empty}\" != \"empty\" ]; then sass-lint --verbose --no-exit $files; fi",
+    "eslint": "files=`git diff --staged --name-only --diff-filter=ACMRTU | egrep -i '\\.js$'`; if [ \"${files:=empty}\" != \"empty\" ]; then eslint -c .eslintrc.json $files; fi",
     "test": "ava"
   },
   "config": {
@@ -74,6 +74,7 @@
     "shelljs": "^0.7.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
+    "validate_filename": "^0.2.1",
     "webpack": "^1.13.1",
     "webpack-load-plugins": "^0.1.2"
   }
