@@ -4,6 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
+    "preinstall": "npm ls -g webpack || npm i -g webpack; npm ls -g sass-lint || npm i -g sass-lint",
     "dev": "NODE_ENV=dev webpack --watch --process --output-public-path http://localhost:8021/webpack_demo/dist/",
     "production": "webpack",
     "validate_filename": "node node_modules/validate_filename/index.js -e '^[a-z0-9\\-_./]+$' -m '约定文件名由小写字母、数字、_组成' `git diff --staged --name-only --diff-filter=ACMRTU`",
@@ -45,7 +46,6 @@
       "babel-register"
     ]
   },
-  "preinstall": "npm ls -g webpack || npm i -g webpack; npm ls -g sass-lint || npm i -g sass-lint",
   "postinstall": "bower install",
   "dependencies": {
     "autoprefixer": "^6.3.6",
