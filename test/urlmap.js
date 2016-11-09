@@ -1,7 +1,7 @@
 import test from 'ava';
 import jsdom from 'jsdom';
 
-import { getEnv } from '../js/urlmap';
+import { getEnv } from '../js/util/urlmap';
 
 test('env: development', t => {
     var config = {
