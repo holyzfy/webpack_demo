@@ -51,7 +51,12 @@ var config = {
                     'sass?outputStyle=' + (process.env.NODE_ENV === 'dev' ? 'expanded' : 'compressed')
                 ]
             }
-        ]
+        ],
+        imageWebpackLoader: {
+            mozjpeg: {
+                quality: 90
+            }
+        }
     },
     postcss: function () {
         return [autoprefixer];
