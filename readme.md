@@ -1,4 +1,6 @@
-# webpack_demo
+webpack_demo
+
+# 已过时，请使用 https://github.com/holyzfy/webpack-demo
 
 webpack是一个很强大的模块加载器和打包工具，然而在实际项目里很难做到拿来即用，所以我决定写一个示例项目。
 
